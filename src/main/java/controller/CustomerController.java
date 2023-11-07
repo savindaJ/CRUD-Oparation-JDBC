@@ -47,15 +47,9 @@ public class CustomerController {
     @FXML
     void initialize(){
         initUi();
-        setCellValueFactory();
+        fillTable();
     }
 
-    private void setCellValueFactory() {
-        colName.setCellValueFactory(new PropertyValueFactory<>("customerId"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("customerName"));
-        colSalary.setCellValueFactory(new PropertyValueFactory<>("customerAddress"));
-        colId.setCellValueFactory(new PropertyValueFactory<>("customerSalary"));
-    }
     public void cmbIdOnAction(ActionEvent actionEvent) {
 
     }
@@ -145,5 +139,9 @@ public class CustomerController {
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
         //Todo: add delete function !
+    }
+
+    private void fillTable() {
+        //ToDo: add get all function !
     }
 }
