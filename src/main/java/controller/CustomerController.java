@@ -76,7 +76,7 @@ public class CustomerController {
     }
 
     public void btnBackClicked(MouseEvent event) throws IOException {
-        Parent root = null;
+       /* Parent root = null;
         root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/menu.fxml")));
         if (root != null) {
             Scene subScene = new Scene(root);
@@ -89,7 +89,7 @@ public class CustomerController {
             tt.setToX(0);
             tt.play();
 
-        }
+        }*/
     }
 
     public void mouseEnterd(MouseEvent event) {
