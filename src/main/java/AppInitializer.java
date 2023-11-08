@@ -12,7 +12,7 @@ public class AppInitializer extends Application {
         primaryStage.show();
 
     }
-
+//Nvn
     public static void main(String[] args) {
         launch(args);
     }
