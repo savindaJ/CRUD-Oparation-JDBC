@@ -6,6 +6,8 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.effect.DropShadow;
@@ -16,8 +18,12 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
+import java.util.Properties;
+import java.util.ResourceBundle;
 
-public class CustomerController {
+public class CustomerController  {
 
 
     public JFXTextField txtName;
@@ -38,16 +44,49 @@ public class CustomerController {
     public TableColumn<Object, Object> colSalary;
 
     @FXML
-    void initialize(){
-        initUi();
-        fillTable();
+    void initialize() {
+        getAllCustomer();
+        btnUpdate.setDisable(false);
+    }
+
+    private void getAllCustomer() {
+        String Url = "jdbc:mysql://localhost/thogakade";
+        Properties props = new Properties();
+        props.setProperty("user", "root");
+        props.setProperty("password", "Ijse1234");
+
+        try {
+            Connection connection = DriverManager.getConnection(Url, props);
+            String quary = "SELECT * FROM customer";
+            PreparedStatement pstm = connection.prepareStatement(quary);
+
+            ResultSet resultSet = pstm.executeQuery();
+
+            while (resultSet.next()){
+                String cusId = resultSet.getString(1);
+                String cusName = resultSet.getString(2);
+                String cusAddress = resultSet.getString(3);
+                int cusTel = resultSet.getInt(4);
+
+                System.out.println("cus id ;"+cusId);
+                System.out.println("cus name ;"+cusName);
+                System.out.println("cus address ;"+cusAddress);
+                System.out.println("cus tel ;"+cusTel);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public void cmbIdOnAction(ActionEvent actionEvent) {
 
     }
 
-    private void initUi(){
+    /*private void initUi() {
         txtAddress.clear();
         txtId.clear();
         txtId.clear();
@@ -61,7 +100,7 @@ public class CustomerController {
         btnDelete.setDisable(true);
         btnUpdate.setDisable(true);
     }
-
+*/
     public void btnBackClicked(MouseEvent event) throws IOException {
        /* Parent root = null;
         root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/view/menu.fxml")));
@@ -124,17 +163,122 @@ public class CustomerController {
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
         //ToDo: add save function !
+
+        String address = txtAddress.getText();
+        String id = txtId.getText();
+        String tel = txtSalary.getText();
+        String name = txtName.getText();
+
+
+        String URl = "jdbc:mysql://localhost/thogakade";
+
+        Properties props = new Properties();
+        props.setProperty("user", "root");
+        props.setProperty("password", "Ijse1234");
+
+        try(Connection connection = DriverManager.getConnection(URl, props)) {
+
+            String quary = "INSERT INTO customer(id,name,address,tel) VALUES (?,?,?,?)";
+
+
+            PreparedStatement pstm = connection.prepareStatement(quary);
+
+            pstm.setString(1, id);
+            pstm.setString(2, name);
+            pstm.setString(3, address);
+            pstm.setInt(4, Integer.parseInt(tel));
+
+//            update to database;
+            int executed = pstm.executeUpdate();
+
+            if (executed > 0)
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
+            else
+                new Alert(Alert.AlertType.WARNING, "Try Again").show();
+
+
+            System.out.println(connection);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
         //ToDo: add update function !
+        String URL = "jdbc:mysql://localhost/thogakade";
+
+        Properties props = new Properties();
+
+        props.setProperty("user", "root");
+        props.setProperty("password", "Ijse1234");
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, props);
+
+            String quary = "UPDATE customer SET name=?,address=?,tel=? WHERE id=?";
+
+            PreparedStatement pstm = connection.prepareStatement(quary);
+
+            pstm.setString(1, txtName.getText());
+            pstm.setString(2, txtAddress.getText());
+            pstm.setInt(3, Integer.parseInt(txtSalary.getText()));
+            pstm.setString(4, txtId.getText());
+
+            int executed = pstm.executeUpdate();
+
+            if (executed > 0)
+                new Alert(Alert.AlertType.CONFIRMATION, "Updated").show();
+            else
+                new Alert(Alert.AlertType.WARNING, "Try Again").show();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
         //Todo: add delete function !
+        String URL = "jdbc:mysql://localhost/thogakade";
+
+        Properties props = new Properties();
+
+        props.setProperty("user", "root");
+
+        props.setProperty("password", "Ijse1234");
+
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, props);
+
+
+            String quary = "DELETE FROM customer WHERE id=?";
+
+
+            PreparedStatement pstm = connection.prepareStatement(quary);
+
+            pstm.setString(1, txtId.getText());
+
+            int executed = pstm.executeUpdate();
+
+            if (executed > 0)
+                new Alert(Alert.AlertType.CONFIRMATION, "Deleted").show();
+            else
+                new Alert(Alert.AlertType.WARNING, "Try Again").show();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     private void fillTable() {
         //ToDo: add get all function !
     }
+
 }
