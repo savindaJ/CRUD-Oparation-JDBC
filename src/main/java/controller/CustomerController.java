@@ -1,5 +1,6 @@
 package controller;
 
+import DB.DBConnection;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -50,13 +51,9 @@ public class CustomerController  {
     }
 
     private void getAllCustomer() {
-        String Url = "jdbc:mysql://localhost/thogakade";
-        Properties props = new Properties();
-        props.setProperty("user", "root");
-        props.setProperty("password", "Ijse1234");
 
         try {
-            Connection connection = DriverManager.getConnection(Url, props);
+            Connection connection = DBConnection.getInstance().getConnection();
             String quary = "SELECT * FROM customer";
             PreparedStatement pstm = connection.prepareStatement(quary);
 
@@ -169,14 +166,8 @@ public class CustomerController  {
         String tel = txtSalary.getText();
         String name = txtName.getText();
 
-
-        String URl = "jdbc:mysql://localhost/thogakade";
-
-        Properties props = new Properties();
-        props.setProperty("user", "root");
-        props.setProperty("password", "Ijse1234");
-
-        try(Connection connection = DriverManager.getConnection(URl, props)) {
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
 
             String quary = "INSERT INTO customer(id,name,address,tel) VALUES (?,?,?,?)";
 
@@ -201,20 +192,13 @@ public class CustomerController  {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
         //ToDo: add update function !
-        String URL = "jdbc:mysql://localhost/thogakade";
-
-        Properties props = new Properties();
-
-        props.setProperty("user", "root");
-        props.setProperty("password", "Ijse1234");
 
         try {
-            Connection connection = DriverManager.getConnection(URL, props);
+            Connection connection = DBConnection.getInstance().getConnection();
 
             String quary = "UPDATE customer SET name=?,address=?,tel=? WHERE id=?";
 
@@ -242,17 +226,10 @@ public class CustomerController  {
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
         //Todo: add delete function !
-        String URL = "jdbc:mysql://localhost/thogakade";
-
-        Properties props = new Properties();
-
-        props.setProperty("user", "root");
-
-        props.setProperty("password", "Ijse1234");
 
 
         try {
-            Connection connection = DriverManager.getConnection(URL, props);
+            Connection connection = DBConnection.getInstance().getConnection();
 
 
             String quary = "DELETE FROM customer WHERE id=?";
@@ -273,8 +250,6 @@ public class CustomerController  {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 
     private void fillTable() {
