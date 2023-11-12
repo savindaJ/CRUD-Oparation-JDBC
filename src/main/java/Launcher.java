@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class Launcher {
 
-    static Connection connection;
+   /* static Connection connection;
 
     public static void main(String[] args) {
         try {
@@ -85,5 +85,9 @@ public class Launcher {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }*/
+
+    public static void main(String[] args) {
+        AppInitializer.main(args);
     }
 }

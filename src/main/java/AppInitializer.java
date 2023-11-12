@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 public class AppInitializer extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/customer.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/table.fxml"))));
         primaryStage.setResizable(false);
         primaryStage.centerOnScreen();
         primaryStage.show();

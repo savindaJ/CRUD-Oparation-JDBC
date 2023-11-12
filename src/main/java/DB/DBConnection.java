@@ -16,7 +16,7 @@ public class DBConnection {
 
     static {
         props.setProperty("user","root");
-        props.setProperty("password","Ijse1234");
+        props.setProperty("password","80221474");
     }
 
     private DBConnection() throws SQLException {

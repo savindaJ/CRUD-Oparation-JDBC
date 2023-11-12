@@ -1,0 +1,191 @@
+/*
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    !*-fx-background-color: #5b81d3;*!
+    -fx-border-radius: 30px;
+    -fx-background-radius: 10px;
+    -fx-border-color: none;
+}
+.table-view .column-header .label{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-border-radius: 50px;
+}
+.table-view {
+    -fx-base: rgb(185, 171, 255);
+    -fx-control-inner-background: transparent;
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(250,95,9,0.88);
+    -fx-border-radius: 10px;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: rgba(250, 95, 9, 0.88);
+    -fx-padding: 5;
+    -fx-text-background-color: rgb(238, 94, 253);
+}
+.table-view .cell{
+    -fx-cell-size: 40;
+    -fx-background-color: #29292D;
+    -fx-border-color: #29292D;
+    -fx-text-fill: lightgray;
+    -fx-alignment: CENTER_LEFT;
+
+}
+.table-row-cell:selected {
+    -fx-background-color: whitesmoke;
+    -fx-text-background-color: #321d53;
+
+
+}
+
+!* scroll bar starts here *!
+
+!* The increment and decrement button CSS class of scrollbar *!
+.table-view .increment-button ,.table-view .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 2em;
+
+}
+
+!* The main scrollbar **track** CSS class  *!
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color:derive( #6622CC,80%);
+
+    -fx-background-radius: 2em;
+    -fx-border-radius:2em;
+}
+
+!* The main scrollbar **thumb** CSS class which we drag every time (movable) *!
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color:derive( #6622CC,90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+
+}
+
+!* chart properties *!
+
+.chart {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+.chart-plot-background {
+    -fx-background-color:transparent;
+}
+
+.chart-pie {
+    -fx-border-color: derive(-fx-pie-color, 1%);
+    -fx-border-width: 0px;
+}*/
+
+/*
+.table-view {
+    -fx-base: rgb(8, 75, 172);
+    -fx-control-inner-background: #fcfc6f;
+    -fx-background-color: transparent;
+    -fx-border-color: rgb(8, 75, 172);
+    -fx-border-radius: 10px;
+    -fx-table-cell-border-color: rgba(188, 108, 108, 0);
+    -fx-table-header-border-color: rgb(8, 75, 172);
+    -fx-padding: 5;
+    -fx-text-background-color: rgba(0, 0, 0, 1);
+
+}
+
+.table-view .column-header-background {
+    -fx-background-color: rgba(255, 75, 75, 0);
+    -fx-text-background-color: rgba(0, 0, 0, 1);
+}
+.table-view .column-header, .table-view .filler {
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+            transparent
+            transparent
+            derive(-fx-base, 80%)
+            transparent;
+    -fx-border-insets: 0 10 1 0;
+    -fx-text-background-color: rgba(0, 0, 0, 1);
+}
+.table-view .column-header .label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-background-color: rgb(229, 171, 86);
+    -fx-alignment: center;
+    -fx-opacity: 1;
+    -fx-font-weight: 700;
+    -fx-font-style: bold;
+}
+
+.column-header{
+    -fx-background-color: red;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-border-color: rgb(9, 80, 155);
+    -fx-border-radius: 5px;
+    -fx-background-color: transparent;
+    -fx-text-background-color: rgba(0, 0, 0, 1);
+}
+*/
+.table-view {
+    -fx-base: rgb(246, 65, 65);
+    -fx-control-inner-background: transparent;
+    -fx-background-color: transparent;
+    -fx-border-color: rgb(8, 75, 172);
+    -fx-border-radius: 20px;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: rgb(8, 75, 172);
+    -fx-padding: 5;
+    -fx-text-background-color: rgb(8, 75, 172);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+    -fx-text-background-color: rgb(140, 236, 119);
+}
+.table-view .column-header, .table-view .filler {
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+            transparent
+            transparent
+            derive(-fx-base, 80%)
+            transparent;
+    -fx-border-insets: 0 10 1 0;
+    -fx-text-background-color: rgba(0, 0, 0, 1);
+}
+.table-view .column-header .label {
+    -fx-font-size: 9pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-background-color: rgba(0, 0, 0, 1);
+    -fx-alignment: center;
+    -fx-opacity: 1;
+}
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-border-color: rgb(8, 75, 172);
+    -fx-border-radius: 5px;
+    -fx-background-color: transparent;
+    -fx-text-background-color: rgba(0, 0, 0, 1);
+}
+
+.text-field{
+    -fx-background-color: transparent;
+    -fx-border-color: blue;
+    -fx-border-radius: 10px;
+}
+
+.button{
+    -fx-border-color: blue;
+    -fx-border-radius: 10px;
+}
+
+.button:hover{
+    -fx-border-color: #ee5efd;
+    -fx-border-radius: 10px;
+    -fx-text-fill: black;
+}
