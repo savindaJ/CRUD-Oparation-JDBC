@@ -10,7 +10,6 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="493.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TableController">
    <children>
       <Label layoutX="156.0" layoutY="50.0" opacity="0.05" prefHeight="88.0" prefWidth="288.0" text="Customer" textAlignment="RIGHT" textOverrun="CENTER_WORD_ELLIPSIS">
@@ -27,12 +26,12 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <TableView layoutX="9.0" layoutY="188.0" prefHeight="291.0" prefWidth="583.0" stylesheets="@style/table.css">
+      <TableView fx:id="tblCustomer" layoutX="9.0" layoutY="188.0" prefHeight="291.0" prefWidth="583.0" stylesheets="@style/table.css">
         <columns>
-          <TableColumn prefWidth="122.0" text="ID" />
-          <TableColumn prefWidth="152.0" text="Name" />
-            <TableColumn prefWidth="154.0" text="Address" />
-            <TableColumn prefWidth="149.0" text="Salary" />
+          <TableColumn fx:id="colId" prefWidth="122.0" text="ID" />
+          <TableColumn fx:id="colName" prefWidth="152.0" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="154.0" text="Address" />
+            <TableColumn fx:id="colSalary" prefWidth="149.0" text="Salary" />
         </columns>
       </TableView>
       <JFXTextField labelFloat="true" layoutX="37.0" layoutY="37.0" promptText="ID" />
